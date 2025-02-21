@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Статус проекта Nextcloud</title>
+</head>
+<body>
+    <h1>Статус проекта {% if project %}{{ project.name | default('') }}{% endif %}</h1>
+    {% if error %}
+      <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if not error %}
+        <p>Статус: <b>{% if project.created_at %}готов{% else %}создаётся{% endif %}</b></p>
+        <p>Будет удалён: <b>{% if deleted_at %}{{ deleted_at }}{% else %}будет известно после создания{% endif %}</b></p>
+    {% endif %}
+</body>
+</html>
